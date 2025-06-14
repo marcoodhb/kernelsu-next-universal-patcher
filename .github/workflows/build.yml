@@ -299,7 +299,7 @@ jobs:
             HOSTCC=clang \
             HOSTCXX=clang++ \
             LLVM=1 \
-            LTO=thin"
+            LTO=full"
 
 
             # Generate kernel config using make
@@ -338,7 +338,7 @@ jobs:
             HOSTCC=clang \
             HOSTCXX=clang++ \
             LLVM=1 \
-            LTO=thin"
+            LTO=full"
             
             # Compile using make
             if [ ${{ github.event.inputs.KERNEL_COMPILER }} == 'Clang/LLVM' ]; then

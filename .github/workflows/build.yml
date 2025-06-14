@@ -343,7 +343,7 @@ jobs:
             # Compile using make
             if [ ${{ github.event.inputs.KERNEL_COMPILER }} == 'Clang/LLVM' ]; then
                 if [ ! -z ${{ github.event.inputs.KERNEL_COMPILER_TOOLCHAIN }} ]; then
-                    make ARCH=${{ github.event.inputs.KERNEL_ARCH }} $MAKE_ARGS LLVM_IAS=1 -j$(nproc --all) O=out
+                    make ARCH=${{ github.event.inputs.KERNEL_ARCH }} $MAKE_ARGS LLVM_IAS=1 V=1 | grep --color=always -E -- "-flto=thin|-flto " -j$(nproc --all) O=out
                 else
                     exit 3
                 fi
